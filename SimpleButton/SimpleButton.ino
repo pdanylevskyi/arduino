@@ -1,17 +1,17 @@
 void setup() {
     Serial.begin(9600);
-    pinMode(7, INPUT_PULLUP);
-    pinMode(13, OUTPUT);
+    pinMode(2, INPUT_PULLUP);
+    pinMode(8, OUTPUT);
 }
 
 void loop() {
-    int value = digitalRead(7);
+    int value = digitalRead(2);
     Serial.println(value);
 
     if (value == 0) {
-        digitalWrite(13, HIGH);
+        digitalWrite(8, HIGH);
     } else {
-        digitalWrite(13, LOW);
+        digitalWrite(8, LOW);
     }
 
     delay(1);
