@@ -1,17 +1,17 @@
 const int buttonPin = 2;
 
-bool buttonLastState = HIGH;
-bool buttonCurentState = HIGH;
+bool buttonLastState = LOW;
+bool buttonCurentState = LOW;
 
 void setup() {
     Serial.begin(9600);
-    pinMode(buttonPin, INPUT_PULLUP);
+    pinMode(buttonPin, INPUT);
 }
 
 void loop() {
     buttonCurentState = digitalRead(buttonPin);
 
-    if (buttonCurentState == LOW && buttonCurentState != buttonLastState) {
+    if (buttonCurentState == HIGH && buttonCurentState != buttonLastState) {
         Serial.println("Button changed.");
     }
 
