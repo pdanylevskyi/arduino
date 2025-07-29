@@ -1,6 +1,7 @@
 const int pinClk = 13;
 const int pinDt = 12;
 
+int counter = 0;
 int clkLastState;
 int clkCurrentState;
 int dtCurrentState;
@@ -19,9 +20,13 @@ void loop() {
         Serial.println("Encoder changed.");
         if (dtCurrentState == clkCurrentState) {
             Serial.println("Turned left.");
+            counter = counter - 1;
         } else {
             Serial.println("Turned right.");
+            counter = counter + 1;
         }
+
+        Serial.println("counter:" + String(counter));
     }
     clkLastState = clkCurrentState; 
     delay(5);
